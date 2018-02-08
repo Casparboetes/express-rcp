@@ -1,4 +1,3 @@
-// index.js
 const express = require('express')
 const bodyParser = require('body-parser')
 const passport = require('./config/auth')
@@ -16,15 +15,15 @@ app
   .use(users)
   .use(sessions)
 
-  // catch 404 and forward to error handler
+  // NEXT:catch 404 and forward to error handler
   .use((req, res, next) => {
     const err = new Error('Not Found')
     err.status = 404
     next(err)
   })
 
-  // final error handler
-  app.use((err, req, res, next) => {
+  // NEXT:final error handler
+  .use((err, req, res, next) => {
     res.status(err.status || 500)
     res.send({
       message: err.message,

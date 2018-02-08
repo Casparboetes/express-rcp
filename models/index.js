@@ -5,3 +5,5 @@ module.exports = {
   Recipe,
   User
 }
+
+// export and object with one or more models

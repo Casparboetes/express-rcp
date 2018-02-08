@@ -21,12 +21,13 @@ const recipeSchema = new Schema({
   vegetarian: { type: Boolean, default: false },
   pescatarian: { type: Boolean, default: false },
   cookingTime: { type: Number, required: false },
-  ingredients: [ingredientSchema],
+  ingredients: [ingredientSchema], // array of items from ingredients & steps
   cookingSteps: [cookingStepSchema],
-  likedBy: [{ type: Schema.Types.ObjectId, ref: 'users' }],
-  authorId: { type: Schema.Types.ObjectId, ref: 'users' },
+  likedBy: [{ type: Schema.Types.ObjectId, ref: 'users' }], // array of people liked recipes
+  authorId: { type: Schema.Types.ObjectId, ref: 'users' }, // relates to maker
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now }
 })
 
 module.exports = mongoose.model('recipes', recipeSchema)
+// why? stated in documentation of mongooseDB

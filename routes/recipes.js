@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const { Recipe } = require('../models')
+const passport = require('../config/auth')
 
 router.get('/recipes', (req, res, next) => {
   Recipe.find()
@@ -51,5 +52,10 @@ router.get('/recipes', (req, res, next) => {
     .then((recipe) => res.json(recipe))
     .catch((error) => next(error))
   })
+  // Recipe.findOneAndRemove()
+  //   .then((removed) => res.json(removed))
+  //   .catch((error) => next(error))
+  // })
+
 
 module.exports = router
