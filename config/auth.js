@@ -24,3 +24,5 @@ passport.deserializeUser(User.deserializeUser())
 passport.use(tokenStrategy)
 
 module.exports = passport
+
+// jwtPayload.id is 'unmangled' here

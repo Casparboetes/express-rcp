@@ -11,3 +11,8 @@ router.post('/sessions', passport.authenticate('local'), (req, res) => {
 })
 
 module.exports = router
+
+// allows clients to post to sessions, ask them to authenticate them selfs,
+// first you through middleware then you through route handler,
+// payload is object with user.id, you can add more stuff there,
+// it is all signed and serialized and put into a token.
