@@ -8,13 +8,13 @@ router.post('/users', (req, res, next) => {
       err.status = 422
       return next(err)
     }
-
     const { name, email, _id, createdAt, updatedAt } = user
     res.status(201).send({ name, email, _id, createdAt, updatedAt })
   })
 })
 
 router.get('/users/me', passport.authorize('jwt', { session: false }), (req, res, next) => {
+  // Once authorized, the user data should be in `req.account`!
   if (!req.account) {
     const error = new Error('Unauthorized')
     error.status = 401
